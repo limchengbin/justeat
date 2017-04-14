@@ -15,8 +15,8 @@ and open the template in the editor.
     <body>
         <?php 
             for($x =0 ; $x<sizeof($photos);$x++){
-                echo $photos[$x]['name'];
-                echo "<br>";
+            echo "<a href='comments.php?id=". $photos[$x]['id'] ."'>" . $photos[$x]['name'];
+            echo "<br>";
             }
         ?> 
     </body>
