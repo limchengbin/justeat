@@ -14,7 +14,11 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
+            echo $photo['name']."<br>";
+            echo $photo['likeAmount'] ."<br>";
+            for($x = 0 ; $x<sizeof($comments);$x++){
+                echo $array[$x]['username'] . ":  " . $comments[$x]['comments']."<br>";
+            }
         ?>
     </body>
 </html>
