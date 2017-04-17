@@ -45,19 +45,20 @@ and open the template in the editor.
         <!-- Header -->
         <header id="top" class="header">
             <div class="text-vertical-center">
-
                 <h1><img class="bounce" src="img/logo2.png" alt=""/></h1>
-                <h1 class="quote">Food-in</h1>
+                <h1 class="title">Food-in</h1>
                 <div class="modal-dialog">
                     <div class="loginmodal-container">
                         <form id="login-form" method="" action="">
                             <input type="text" name="user" placeholder="Username">
                             <input type="password" name="pass" placeholder="Password">
                             <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                            <center>or</center>
+                            <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                         </form>
-
+                        <br>
                         <div class="login-help">
-                            <a href="#">Register</a> - <a href="#">Forgot Password</a>
+                            <a href="#">Register</a>
                         </div>
                     </div>
                 </div>
