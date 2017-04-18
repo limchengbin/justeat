@@ -52,7 +52,7 @@ and open the template in the editor.
                             <input type="text" name="user" placeholder="Email Address">
                             <input type="password" name="pass" placeholder="Password">
                             <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                            <center>or</center>
+                            <center>via</center>
                             <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                         </form>
                         <br>
