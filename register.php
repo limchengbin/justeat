@@ -79,20 +79,20 @@ and open the template in the editor.
             </div>
             <div class="contact-section">
                 <div class="container">
-                    <form id="register-form" method="post" action="processRegisteration.php">
+                    <form id="register-form" method="post" action="include/registerProcess.php">
                         <div class="container">
                             <div class="col-md-6 col-md-offset-3 col-xs-12">
                                 <div class="form-group">
                                     <label for="exampleInputUsername" class="form-title">Username</label>
-                                    <input type="text" class="form-control" name="exampleInputUsername" id="exampleInputUsername" placeholder=" Enter username" value="">
+                                    <input type="text" class="form-control" name="username" id="username" placeholder=" Enter username" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail" class="form-title">Email Address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail" name="exampleInputEmail" placeholder=" Enter Email Address" value="">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder=" Enter Email Address" value="">
                                 </div>	
                                 <div class="form-group">
                                     <label for="exampleInputUsername" class="form-title">Name</label>
-                                    <input type="text" class="form-control" name="exampleInputName" id="exampleInputUsername" placeholder=" Enter Name" value="">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder=" Enter Name" value="">
                                 </div> 
                                 <div class="form-group">
                                     <label for="password" class="form-title">Password</label>
