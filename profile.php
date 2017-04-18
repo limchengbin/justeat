@@ -29,11 +29,26 @@ and open the template in the editor.
             .profile-pic{
                 max-width: 100%;
                 height: auto;
-                background-color: yellow;
             }
             
-            .username{
-                background-color: blue;
+            #edit-btn{
+                background-color: rgba(0,0,0,0.5); /* Green */
+                border: none;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+                cursor: pointer;
+                max-width: 200px;
+                white-space: normal;
+            }
+
+            #edit-btn:hover{
+                background-color: #ff0000;
             }
         </style>
     </head>
@@ -45,12 +60,16 @@ and open the template in the editor.
                         <img class="img-circle profile-pic" src="img/1.jpg">
                     </div>
                     <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 username">
-                        <h4 style="font-family: cursive; font-weight: bold;">Jin</h4>
+                        <h3 style="font-family: cursive; font-weight: bold;">Jin</h3>
+                        
+                        <br>
+                        <h4 class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
                     </div>
                     <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 location">
-                        <h5 class="pull-right" style="font-weight: bold;"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;ireland</h5>
+                        <h5 class="pull-right" style="font-weight: bold;">80 Posts</h5>
                     </div>
                 </div>
+            
             </div>
     </body>
 </html>
