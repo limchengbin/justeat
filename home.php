@@ -15,11 +15,12 @@ and open the template in the editor.
         <title>Home</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min1.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
         <link href="css/stylish-portfolio.css" rel="stylesheet">
         <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
+        <link href="css/home.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -31,35 +32,9 @@ and open the template in the editor.
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <style>
-            .post-container{
-                background-color: #e6e6e6;
-            }
-
-            .user{
-                
-            }
-
-            .user-pic{
-                padding-top: 5px;
-                padding-bottom: 5px;
-                width: 50px;
-                display: inline-block;
-            }
-            
-            .username{
-                padding-top: 15px;
-                display: inline-block;
-            }
-            
-            .location{
-                padding-top: 20px;
-                display: inline-block;
-            }
-        </style>
     </head>
     <body>
-        <?php include 'navbar.php' ?>
+        <?php include 'include/navbar.php' ?>
         <div class="container big-container">
             <div class="col-md-6 col-md-offset-3 col-xs-12 post-container">
                 <div class="row user">
