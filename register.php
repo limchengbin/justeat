@@ -120,5 +120,11 @@ and open the template in the editor.
                 </div>
             </div>
         </section>
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
