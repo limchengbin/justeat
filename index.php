@@ -49,7 +49,7 @@ and open the template in the editor.
                 <div class="modal-dialog">
                     <div class="loginmodal-container">
                         <form id="login-form" method="" action="">
-                            <input type="text" name="user" placeholder="Username">
+                            <input type="text" name="user" placeholder="Email Address">
                             <input type="password" name="pass" placeholder="Password">
                             <input type="submit" name="login" class="login loginmodal-submit" value="Login">
                             <center>or</center>
@@ -57,7 +57,7 @@ and open the template in the editor.
                         </form>
                         <br>
                         <div class="login-help">
-                            <a href="#">Register</a>
+                            <a href="register.php">Register</a>
                         </div>
                     </div>
                 </div>

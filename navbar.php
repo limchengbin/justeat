@@ -53,7 +53,7 @@ and open the template in the editor.
                             <span class="icon-bar"></span>
                         </button>
                         <img id="navbar-logo" class="pull-left" src="img/logo2.png" alt=""/>
-                        <a class="navbar-brand" href="index.php" id="title">Food-In</a>
+                        <a class="navbar-brand" href="home.php" id="title">Food-In</a>
                     </div> 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
