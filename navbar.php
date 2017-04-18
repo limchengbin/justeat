@@ -42,7 +42,7 @@ and open the template in the editor.
             <![endif]-->
         </head>
         <body>
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: #fff; border-bottom-color: #f2f2f2;">
+            <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color: #fff; border-bottom-color: #f2f2f2;">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -67,10 +67,7 @@ and open the template in the editor.
                 </div>
                 <!-- /.container -->
             </nav>
-            <?php
-            // put your code here
-            ?>
-            
+
             <!-- jQuery -->
             <script src="js/jquery.js"></script>
 

@@ -10,7 +10,6 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <!DOCTYPE html>
     <html lang="en">
 
         <head>
