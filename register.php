@@ -102,13 +102,6 @@ and open the template in the editor.
                                     <label for="password" class="form-title">Confirm Password</label>
                                     <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="" value="">
                                 </div>
-                                <div class="form-group">
-                                    <label for ="gender" class="form-title">Gender</label>
-                                    <select class="form-control" id="gender" name="gender"  value="<?php echo $gender; ?>">
-                                        <option value="MALE">Male</option>
-                                        <option value="FEMALE">Female</option>
-                                    </select>
-                                </div>
                                 <div>
                                     <center>
                                         <button type="button" id="register_button" class="button submit">Sign up</button>

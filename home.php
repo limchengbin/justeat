@@ -59,7 +59,7 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-        <?php include 'navbar.php' ?>
+        <?php include 'include/navbar.php' ?>
         <div class="container big-container">
             <div class="col-md-6 col-md-offset-3 col-xs-12 post-container">
                 <div class="row user">
