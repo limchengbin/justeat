@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 17, 2017, 2:21:40 PM
+    Author     : User
+*/
+#navbar-logo{
+    width: 75px;
+    height: 45px;
+}
+
+#title:hover{
+    background-color: red;
+    transition-duration: 0.4s;
+}
+
+#title-right:hover{
+    background-color: red !important;
+    transition-duration: 0.4s;
+}
+
+.navbar-toggle{
+    background-color: #e60000;
+    border:none;
+}
+
+.navbar-toggle:hover{
+    background-color: red !important;
+}
+
+.navbar-toggle:focus{
+    background-color: #e60000 !important;
+}

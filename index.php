@@ -10,7 +10,6 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <!DOCTYPE html>
     <html lang="en">
 
         <head>
@@ -45,19 +44,20 @@ and open the template in the editor.
         <!-- Header -->
         <header id="top" class="header">
             <div class="text-vertical-center">
-
                 <h1><img class="bounce" src="img/logo2.png" alt=""/></h1>
-                <h1 class="quote">Food-in</h1>
+                <h1 class="title">Food-in</h1>
                 <div class="modal-dialog">
                     <div class="loginmodal-container">
                         <form id="login-form" method="" action="">
-                            <input type="text" name="user" placeholder="Username">
+                            <input type="text" name="user" placeholder="Email Address">
                             <input type="password" name="pass" placeholder="Password">
                             <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                            <center>via</center>
+                            <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                         </form>
-
+                        <br>
                         <div class="login-help">
-                            <a href="#">Register</a> - <a href="#">Forgot Password</a>
+                            <a href="register.php">Register</a>
                         </div>
                     </div>
                 </div>
