@@ -64,6 +64,9 @@ and open the template in the editor.
                             <li class="option">
                                 <a href="edit.php"><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;Edit Profile</a>
                             </li>
+                            <li class="option">
+                                <a href=""><i class="glyphicon glyphicon-log-out"></i>&nbsp;&nbsp;Log Out</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->

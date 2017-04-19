@@ -51,7 +51,20 @@ and open the template in the editor.
                 <div class="img-container">
                     <img src="img/bg.jpg" alt="" class="img-responsive"/>
                 </div>
-            </div>       
+                <br>
+                <div class="col-md-12 col-xs-12 caption-container">
+                    <p class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit</p>
+                </div>
+                <div class="col-md-12 col-xs-12 comments-container">
+                    <h5 class="title">Comments:</h5>
+                    <div class="col-md-12 col-xs-12 comments">
+                        <label>Bin: nice pic!</label>
+                    </div>
+                    <div class="col-md-12 col-xs-12 comments">
+                        <label>Alvin: rich oooh!</label>
+                    </div>
+                </div>
+            </div>  
         </div>
     </body>
 </html>

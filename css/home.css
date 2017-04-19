@@ -8,7 +8,8 @@ and open the template in the editor.
     Author     : User
 */
 .post-container{
-    background-color: #e6e6e6;
+    background-color: #f2f2f2;
+    margin-top: 50px;
 }
 
 .user-pic{
@@ -31,4 +32,12 @@ and open the template in the editor.
 .location{
     padding-top: 20px;
     display: inline-block;
+}
+
+.comments-container{
+    margin-bottom: 20px;
+}
+
+.title{
+    font-weight: bold;
 }

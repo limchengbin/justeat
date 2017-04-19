@@ -24,13 +24,13 @@ and open the template in the editor.
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-        
+
         <style>
             .profile-pic{
                 max-width: 100%;
                 height: auto;
             }
-            
+
             #edit-btn{
                 background-color: rgba(0,0,0,0.5); /* Green */
                 border: none;
@@ -50,23 +50,47 @@ and open the template in the editor.
             #edit-btn:hover{
                 background-color: #ff0000;
             }
+
+            .profile-post{
+                margin-top: 50px;
+            }
+            
+            .post{
+                margin-top: 30px;
+            }
         </style>
     </head>
     <body>
-        <?php include 'include/navbar.php'?>
+        <?php include 'include/navbar.php' ?>
         <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 profile-pic">
+                    <img class="img-circle profile-pic" src="img/1.jpg">
+                </div>
+                <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8 username">
+                    <h3 style="font-family: cursive; font-weight: bold;">Jin</h3>
+                    <br>
+                    <h4 class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit</h4>
+                    <h5 class="pull-right" style="font-weight: bold;">80 Posts</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="container profile-post">
                 <div class="row">
-                    <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 profile-pic">
-                        <img class="img-circle profile-pic" src="img/1.jpg">
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
+                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                     </div>
-                    <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8 username">
-                        <h3 style="font-family: cursive; font-weight: bold;">Jin</h3>
-                        <br>
-                        <h4 class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit</h4>
-                        <h5 class="pull-right" style="font-weight: bold;">80 Posts</h5>
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
+                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
+                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
+                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                     </div>
                 </div>
-            
             </div>
+        </div>
     </body>
 </html>
