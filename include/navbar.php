@@ -59,10 +59,10 @@ and open the template in the editor.
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right" id="title-right">
                             <li class="option">
-                                <a href="#"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;jinlim01@hotmail.com</a>
+                                <a href="profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;jinlim01@hotmail.com</a>
                             </li>
                             <li class="option">
-                                <a href="#"><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;Edit Profile</a>
+                                <a href="edit.php"><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;Edit Profile</a>
                             </li>
                         </ul>
                     </div>

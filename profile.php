@@ -59,13 +59,10 @@ and open the template in the editor.
                     <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 profile-pic">
                         <img class="img-circle profile-pic" src="img/1.jpg">
                     </div>
-                    <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 username">
+                    <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8 username">
                         <h3 style="font-family: cursive; font-weight: bold;">Jin</h3>
-                        
                         <br>
-                        <h4 class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
-                    </div>
-                    <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 location">
+                        <h4 class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit</h4>
                         <h5 class="pull-right" style="font-weight: bold;">80 Posts</h5>
                     </div>
                 </div>
