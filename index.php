@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -48,9 +51,10 @@ and open the template in the editor.
                 <h1 class="title">Food-in</h1>
                 <div class="modal-dialog">
                     <div class="loginmodal-container">
-                        <form id="login-form" method="" action="">
-                            <input type="text" name="user" placeholder="Email Address">
-                            <input type="password" name="pass" placeholder="Password">
+                        <form id="login-form" method="post" action="include/loginProcess.php">
+                            <input type="text" name="email" id="email" placeholder="Email Address">
+                            <input type="password" name="password" id="password" placeholder="Password">
+                            <?php  echo $_SESSION['error_message'] ?>
                             <input type="submit" name="login" class="login loginmodal-submit" value="Login">
                             <center>via</center>
                             <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
@@ -75,3 +79,5 @@ and open the template in the editor.
     </body>
 
 </html>
+<?php 
+$_SESSION['error_message'] = "";

@@ -1,3 +1,6 @@
+<?php 
+    session_start();  
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -104,12 +107,12 @@ and open the template in the editor.
                                 </div>
                                 <div>
                                     <center>
-                                        <button type="button" id="register_button" class="button submit">Sign up</button>
+                                        <input type="submit" name="submit" id="register_button" class="button submit">
                                     </center>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </form> 
                 </div>
             </div>
         </section>
@@ -121,3 +124,5 @@ and open the template in the editor.
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
+<?php 
+    $_SESSION['error_message']="";
