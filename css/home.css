@@ -41,3 +41,13 @@ and open the template in the editor.
 .title{
     font-weight: bold;
 }
+
+.add-post{
+    background-color: #f2f2f2;
+}
+
+.add-post:hover{
+    background-color: red;
+    transition-duration: 0.4s;
+    color: #fff;
+}

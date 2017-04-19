@@ -36,6 +36,9 @@ and open the template in the editor.
     <body>
         <?php include 'include/navbar.php' ?>
         <div class="container big-container">
+            <div class="col-md-6 col-md-offset-3 col-xs-12 add-post">
+                <h5 class="glyphicon glyphicon-plus" style="font-family: cursive; font-weight: bold; padding: 12px 36px;">&nbsp;Add New Post</h5>
+            </div>
             <div class="col-md-6 col-md-offset-3 col-xs-12 post-container">
                 <div class="row user">
                     <div class="col-md-2 col-xs-3 user-pic">
