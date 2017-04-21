@@ -54,9 +54,14 @@ and open the template in the editor.
             .profile-post{
                 margin-top: 50px;
             }
-            
+
             .post{
                 margin-top: 30px;
+            }
+            
+            .img1{
+                max-width: 100%;
+                max-height: 100%;
             }
         </style>
     </head>
@@ -92,5 +97,11 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
