@@ -66,6 +66,9 @@ and open the template in the editor.
                     <div class="col-md-12 col-xs-12 comments">
                         <label>Alvin: rich oooh!</label>
                     </div>
+                    <div class="col-md-12 col-xs-12 comments">
+                        <label>Jin: up lin</label>
+                    </div>
                 </div>
             </div>  
         </div>
