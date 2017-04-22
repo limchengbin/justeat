@@ -27,7 +27,7 @@ and open the template in the editor.
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <?php include 'include/navbar.php'?>
+        <?php include 'navbar.php'?>
         
        <div class="container big-container">
             <div class="col-md-6 col-md-offset-3 col-xs-12 post-container">

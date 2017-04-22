@@ -47,7 +47,7 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-        <?php include 'include/navbar.php' ?>
+        <?php include 'navbar.php' ?>
 
         <section id="portfolio" class="bg-light-gray">
             <div class="section-content">
