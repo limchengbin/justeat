@@ -22,26 +22,6 @@ and open the template in the editor.
 
 
         <br><br><br><br>
-        <iframe src="https://www.facebook.com/plugins/registration?
-                client_id=***************&
-                redirect_uri=http://localhost/index.php/register/do_register/&
-                fields=[
-                {'name':'name'},
-                {'name':'email'},
-                {'name':'location'},
-                {'name':'gender'},
-                {'name':'birthday'},
-                {'name':'password'},
-                {'name':'occupation','description':'General Occupation','type':'select','options':{'Artist':'Artist','Dancer':'Dancer','Manager':'Manager','Musician':'Musician','Photographer':'Photographer','Venue':'Venue'}},
-                {'name':'akID[9][value]','description':'Receive private messages','type':'checkbox','default':'checked'},
-                {'name':'akID[10][value]','description':'Send me email notifications when I receive a private message','type':'checkbox','default':'checked'},
-                {'name':'captcha'}]"
-                scrolling="auto"
-                frameborder="no"
-                style="border:none"
-                allowTransparency="true"
-                width="100%"
-                height="100%">
-        </iframe>
+        
     </body>
 </html>
