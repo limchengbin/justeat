@@ -11,10 +11,7 @@ require_once('database.php');
 
 //$url = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 $caption = filter_input(INPUT_POST, "about-you", FILTER_SANITIZE_STRING);
-$checkIn = filter_input(INPUT_POST, "checkin" . FILTER_SANITIZE_STRING);
-
-echo $caption;
-echo $checkIn;
+$checkIn = $_POST['user_input_autocomplete_address'];
 
 $insertHashtag = "";
 $array = explode(" ", $caption);
@@ -59,7 +56,7 @@ $query = "Insert into photos (name,caption,checkIn,hashtag,userID) values (:name
 $statement = $db->prepare($query);
 $statement->bindValue(":name" , "image");
 $statement->bindValue(":caption",$caption);
-$statement->bindValue(":checkIn","zzz");
+$statement->bindValue(":checkIn",$checkIn);
 $statement->bindValue(":hashtag" , $insert);
 $statement->bindValue(":userID" , 1);
 $statement->execute();
