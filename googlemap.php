@@ -33,7 +33,7 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-        <?php include 'include/navbar.php' ?>
+        <?php include 'navbar.php' ?>
 
         <div class="container">
             <div class="img-responsive" id="mapDiv"></div>

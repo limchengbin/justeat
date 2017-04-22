@@ -66,7 +66,7 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-        <?php include 'include/navbar.php' ?>
+        <?php include 'navbar.php' ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 profile-pic">
