@@ -52,7 +52,7 @@ and open the template in the editor.
                     </div>
                 </div>
                 <div class="img-container">
-                    <img src="img/bg.jpg" alt="" class="img-responsive"/>
+                    <a href="post.php"><img src="img/bg.jpg" alt="" class="img-responsive"/></a>
                 </div>
                 <br>
                 <div class="col-md-12 col-xs-12 caption-container">
