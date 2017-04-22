@@ -38,10 +38,10 @@ foreach ($comments as $list) {
 
 $result = array();
 
-for($b = 0 ; $b < sizeof($array); $b++) {
+for ($b = 0; $b < sizeof($array); $b++) {
     $comment = explode(" ", $comments[$b]['comments']);
     $hashtag = array();
-        
+
     for ($x = 0; $x < sizeof($comment); $x++) {
         $output = $comment[$x];
         $length = strlen($output);
@@ -76,7 +76,12 @@ for($b = 0 ; $b < sizeof($array); $b++) {
         $replace = "<a href=index.php?hashtag=" . $hashtag[$x] . ">#" . $hashtag[$x] . "<a>";
         $print = str_replace($word, $replace, $print);
     }
-    
+
+ 
+
+
+
     $result[$b] = $print;
-    
 }
+
+
