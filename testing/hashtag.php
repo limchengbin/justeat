@@ -52,7 +52,6 @@ and open the template in the editor.
             $print = str_replace($word, $replace, $print);
         }
 
-        echo '<br><br>' . $print;
         ?>
 
 
