@@ -35,7 +35,6 @@ and open the template in the editor.
             #walking{
                 height: 15px;
             }
-            
         </style>
     </head>
     <body>
