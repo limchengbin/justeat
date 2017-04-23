@@ -4,78 +4,115 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>Google Map</title>
+        <title>Places Searchbox</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom CSS -->
         <link href="css/stylish-portfolio.css" rel="stylesheet">
-        <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-        
+
         <style>
-            #mapDiv{
-                height: 500px;
-                width: 100%;
+            /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+            #map {
+                height: 70%;
             }
+            
         </style>
     </head>
     <body>
         <?php include 'navbar.php' ?>
+        <div class="container img-responsive" id="map"></div>
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+        <script>
+            // This example adds a search box to a map, using the Google Place Autocomplete
+            // feature. People can enter geographical searches. The search box will return a
+            // pick list containing a mix of places and predicted search terms.
 
-        <div class="container">
-            <div class="img-responsive" id="mapDiv"></div>
-        </div>
+            // This example requires the Places library. Include the libraries=places
+            // parameter when you first load the API. For example:
+            // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-        <!-- Google Map API -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3GNUNqilg3CdYIedKxEY5zgCl4p7xp-4"></script>
+            function initAutocomplete() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: -33.8688, lng: 151.2195},
+                    zoom: 13,
+                    mapTypeId: 'roadmap'
+                });
 
-        <script type="text/javascript">
-            var CONTENT = 0;
-            var LATITUDE = 1;
-            var LONGITUDE = 2;
-            var locations = [['DkIT', 53.98485693, -6.39410164]];
+                // Create the search box and link it to the UI element.
+                var input = document.getElementById('pac-input');
+                var searchBox = new google.maps.places.SearchBox(input);
+                map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-            var dkit_map = new google.maps.Map(document.getElementById('mapDiv'),
-                    {zoom: 12,
-                        center: new google.maps.LatLng(53.98485693, -6.39410164),
-                        mapTypeId: google.maps.MapTypeId.ROADMAP});
+                // Bias the SearchBox results towards current map's viewport.
+                map.addListener('bounds_changed', function () {
+                    searchBox.setBounds(map.getBounds());
+                });
 
-            var location_marker;
-            var mapWindow = new google.maps.InfoWindow();
+                var markers = [];
+                // Listen for the event fired when the user selects a prediction and retrieve
+                // more details for that place.
+                searchBox.addListener('places_changed', function () {
+                    var places = searchBox.getPlaces();
 
-            for (var i = 0; i < locations.length; i++)
-            {
-                location_marker = new google.maps.Marker({position: new google.maps.LatLng(locations[i][LATITUDE], locations[i][LONGITUDE]),
-                    map: dkit_map});
-
-                google.maps.event.addListener(location_marker, 'click', (function (location_marker, i)
-                {
-                    return function ()
-                    {
-                        mapWindow.setContent(locations[i][CONTENT]);
-                        mapWindow.open(dkit_map, location_marker);
+                    if (places.length == 0) {
+                        return;
                     }
-                })(location_marker, i));
+
+                    // Clear out the old markers.
+                    markers.forEach(function (marker) {
+                        marker.setMap(null);
+                    });
+                    markers = [];
+
+                    // For each place, get the icon, name and location.
+                    var bounds = new google.maps.LatLngBounds();
+                    places.forEach(function (place) {
+                        if (!place.geometry) {
+                            console.log("Returned place contains no geometry");
+                            return;
+                        }
+                        var icon = {
+                            url: place.icon,
+                            size: new google.maps.Size(71, 71),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(17, 34),
+                            scaledSize: new google.maps.Size(25, 25)
+                        };
+
+                        // Create a marker for each place.
+                        markers.push(new google.maps.Marker({
+                            map: map,
+                            icon: icon,
+                            title: place.name,
+                            position: place.geometry.location
+                        }));
+
+                        if (place.geometry.viewport) {
+                            // Only geocodes have viewport.
+                            bounds.union(place.geometry.viewport);
+                        } else {
+                            bounds.extend(place.geometry.location);
+                        }
+                    });
+                    map.fitBounds(bounds);
+                });
             }
+
         </script>
-
-        <!-- jQuery -->
-        <script src="js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPg0ETIZ5yEVLUw7ibbiKcnOJuTkr_wAA&libraries=places&callback=initAutocomplete"
+        async defer></script>
     </body>
 </html>
