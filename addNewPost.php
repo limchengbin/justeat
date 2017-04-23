@@ -68,6 +68,8 @@ and open the template in the editor.
                                     <label for="exampleInputAddress" class="form-title">Check-in</label>
                                     <input id="user_input_autocomplete_address" name="user_input_autocomplete_address" class="form-control" placeholder="Location">
                                 </div>	
+                                <input id='lat' name='lat' value=''>
+                                <input id='lng' name='lng' value=''>
                                 <div>
                                     <center>
                                         <input type="submit" id="register_button" value='Post' class="button submit">

@@ -7,19 +7,25 @@ function initializeAutocomplete(id) {
 }
 
 function onPlaceChanged() {
-    
-    var place = this.getPlace();
-    console.log(place);  // Uncomment this line to view the full object returned by Google API.
 
+    var place = this.getPlace();
+    var lat = place.geometry.location.lat();
+    var long = place.geometry.location.lng();
+    console.log(lat);  // Uncomment this line to view the full object returned by Google API.
+    console.log(long);
+    
+    document.getElementById('lat').value = lat;
+    document.getElementById('lng').value = long;
+    
     for (var i in place.address_components) {
         var component = place.address_components[i];
 
-//    for (var j in component.types) {  // Some types are ["country", "political"]
-//      var type_element = document.getElementById(component.types[j]);
-//      if (type_element) {
-//        type_element.value = component.long_name;
-//      }
-//    }
+        for (var j in component.types) {  // Some types are ["country", "political"]
+            var type_element = document.getElementById(component.types[j]);
+            if (type_element) {
+                type_element.value = component.long_name;
+            }
+        }
     }
 }
 
