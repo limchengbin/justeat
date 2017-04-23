@@ -1,5 +1,6 @@
 <?php 
     session_start();
+   
 ?>
 <!DOCTYPE html>
 <!--
@@ -54,7 +55,7 @@ and open the template in the editor.
                         <form id="login-form" method="post" action="include/loginProcess.php">
                             <input type="text" name="email" id="email" placeholder="Email Address">
                             <input type="password" name="password" id="password" placeholder="Password">
-                            <?php  echo $_SESSION['error_message'] ?>
+                            <?php  if(isset($_SESSION['error_message'])){echo $_SESSION['error_message'];} ?>
                             <input type="submit" name="login" class="login loginmodal-submit" value="Login">
                             <center>via</center>
                             <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>

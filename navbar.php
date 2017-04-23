@@ -1,3 +1,6 @@
+<?php
+require_once('include/user.php');
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -59,13 +62,13 @@ and open the template in the editor.
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right" id="title-right">
                             <li class="option">
-                                <a href="profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;jinlim01@hotmail.com</a>
+                                <a href="profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;<?php if (isset($user['name'])) {echo $user['name'];} ?></a>
                             </li>
                             <li class="option">
                                 <a href="edit.php"><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;Edit Profile</a>
                             </li>
                             <li class="option">
-                                <a href=""><i class="glyphicon glyphicon-log-out"></i>&nbsp;&nbsp;Log Out</a>
+                                <a href="include/logout.php"><i class="glyphicon glyphicon-log-out"></i>&nbsp;&nbsp;Log Out</a>
                             </li>
                         </ul>
                     </div>
