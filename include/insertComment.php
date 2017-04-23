@@ -12,6 +12,10 @@ require_once('database.php');
 //$url = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 $caption = filter_input(INPUT_POST, "about-you", FILTER_SANITIZE_STRING);
 $checkIn = $_POST['user_input_autocomplete_address'];
+$lat = $_POST['lat'];
+$lng = $_POST['lng'];
+
+
 
 $insertHashtag = "";
 $array = explode(" ", $caption);
@@ -52,13 +56,15 @@ for ($x = 0; $x < sizeof($hashtag); $x++) {
 $insert = substr($insertHashtag,0,-1);
 echo $insert;
 
-$query = "Insert into photos (name,caption,checkIn,hashtag,userID) values (:name,:caption,:checkIn,:hashtag,:userID);" ;
+$query = "Insert into photos (name,caption,checkIn,lattitude,longtitude,hashtag,userID) values (:name,:caption,:checkIn,:lattitude,:longtitude,:hashtag,:userID);" ;
 $statement = $db->prepare($query);
 $statement->bindValue(":name" , "image");
 $statement->bindValue(":caption",$caption);
 $statement->bindValue(":checkIn",$checkIn);
+$statement->bindValue(":lattitude",$lat);
+$statement->bindValue(":longtitude",$lng);
 $statement->bindValue(":hashtag" , $insert);
-$statement->bindValue(":userID" , 1);
+$statement->bindValue(":userID" , 69);
 $statement->execute();
 $statement->closeCursor();
 
