@@ -1,5 +1,5 @@
-<?php 
-    session_start();  
+<?php
+session_start();
 ?>
 <!DOCTYPE html>
 <!--
@@ -85,6 +85,8 @@ and open the template in the editor.
                     <form id="register-form" method="post" action="include/registerProcess.php">
                         <div class="container">
                             <div class="col-md-6 col-md-offset-3 col-xs-12">
+                                <div style="background-color: red; color:white;text-align: center;font-family: roboto;"><?php echo $_SESSION['error_message']; ?></div>
+                                <br>
                                 <div class="form-group">
                                     <label for="exampleInputUsername" class="form-title">Username</label>
                                     <input type="text" class="form-control" name="username" id="username" placeholder=" Enter username" value="">
@@ -124,5 +126,5 @@ and open the template in the editor.
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
-<?php 
-    $_SESSION['error_message']="";
+<?php
+$_SESSION['error_message'] = "";

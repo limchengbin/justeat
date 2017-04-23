@@ -27,14 +27,15 @@ if (!empty($list2)) {
         $_SESSION['user'] = $list2[0][1];
         $_SESSION['name'] = $list2[0][3];
         $_SESSION['email'] = $email;
+        $_SESSION['id'] = $list2[0][0];
         $_SESSION['error_message'] = "";
         header('location: ../home.php');
         exit();
     } else {
-        $_SESSION['error_message'] = "username or password is incorrect";
+        $_SESSION['error_message'] = "Username or Password is incorrect";
         header('location: ../index.php');
     }
 } else {
-    $_SESSION['error_message'] = "nothing found";
+    $_SESSION['error_message'] = "Nothing Found";
     header('location: ../index.php');
 }

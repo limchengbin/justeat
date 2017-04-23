@@ -1,9 +1,14 @@
 <?php
- 
-include 'include/user.php';
+require_once("include/user.php");
 
+$get_id = $_SESSION['id'];
 
-
+$query2 = "SELECT * from photos where userID = :get_id";
+$statement2 = $db->prepare($query2);
+$statement2->bindValue(":get_id", $get_id );
+$statement2->execute();
+$photos = $statement2->fetchAll();
+$statement2->closeCursor();
 ?>
 
 <!DOCTYPE html>
@@ -78,30 +83,29 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 profile-pic">
-                    <img class="img-circle profile-pic" src="img/1.jpg">
+                    <img class="img-circle profile-pic" src="<?php echo $user['profilePic'] ?>">
                 </div>
                 <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8 username">
-                    <h3 style="font-family: cursive; font-weight: bold;">Jin</h3>
+                    <h3 style="font-family: cursive; font-weight: bold;"><?php echo $user['name'] ?></h3>
                     <br>
-                    <h4 class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit</h4>
+                    <h4 class="description"><?php echo $user['personalText'] ?></h4>
                     <h5 class="pull-right" style="font-weight: bold;">80 Posts</h5>
                 </div>
             </div>
             <hr>
             <div class="container profile-post">
                 <div class="row">
+                    <?php
+                    foreach ($photos as $photo):
+                    ?>
+                        
                     <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                        <img class="img-responsive" src="images/profilepic/<?php echo $photo['profile_pic']; ?>" alt="">
                     </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    </div>
+                    
+                    <?php
+                    endforeach;
+                    ?>
                 </div>
             </div>
         </div>

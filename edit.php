@@ -1,5 +1,22 @@
-<?php 
-    
+<?php
+require_once("include/database.php");
+
+$email = $_SESSION['email'];
+
+$query1 = "SELECT * from users where email = :email";
+    $statement1 = $db->prepare($query1);
+    $statement1->bindValue(":email", $_SESSION['email']);
+    $statement1->execute();
+    $user = $statement1->fetchAll();
+    $statement1->closeCursor();
+
+foreach ($user as $u):
+    $edit_password = $u['password'];
+    $edit_confirmpassword = $u['password'];
+    $edit_username = $u['username'];
+    $edit_name = $u['name'];
+    $edit_personalText = $u['personalText'];
+endforeach;
 ?>
 <!DOCTYPE html>
 <!--
@@ -58,36 +75,38 @@ and open the template in the editor.
             </div>
             <div class="contact-section">
                 <div class="container">
-                    <form id="register-form" method="post" action="">
+                    <form id="register-form" method="post" action="include/editProcess.php">
                         <div class="container">
                             <div class="col-md-6 col-md-offset-3 col-xs-12">
+                                <div style="background-color: red; color:white;text-align: center;font-family: roboto;"><?php echo $_SESSION['error_message']; ?></div>
+                                <br>
                                 <div class="form-group">
                                     <label for="exampleInputUsername" class="form-title">Username</label>
-                                    <input type="text" class="form-control" name="username" id="username" placeholder=" Enter username" value="">
+                                    <input type="text" class="form-control" name="username" id="username" placeholder=" Enter username" value="<?php echo $edit_username ;?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail" class="form-title">Email Address</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder=" Enter Email Address" value="">
+                                    <input disabled type="email" class="form-control" id="email" name="email" placeholder=" Enter Email Address" value="<?php echo $email ;?>">
                                 </div>	
                                 <div class="form-group">
                                     <label for="exampleInputUsername" class="form-title">Name</label>
-                                    <input type="text" class="form-control" name="name" id="name" placeholder=" Enter Name" value="">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder=" Enter Name" value="<?php echo $edit_name ;?>">
                                 </div> 
                                 <div class="form-group">
                                     <label for="password" class="form-title">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Not less than 8 characters, at least 1 integer,1 uppercase letter and 1 lower case" value="">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Not less than 8 characters, at least 1 integer,1 uppercase letter and 1 lower case" value="<?php echo $edit_password ;?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="form-title">Confirm Password</label>
-                                    <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="" value="">
+                                    <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="" value="<?php echo $edit_confirmpassword ;?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputText" class="form-title">About you</label>
-                                    <textarea rows="4" type="text" class="form-control" id="about-you" name="about-you" placeholder="Not more than 10 words" value=""></textarea>
+                                    <textarea rows="4" type="text" class="form-control" id="about-you" name="about-you" placeholder="Not more than 10 words" value="<?php echo $edit_personalText ;?>"></textarea>
                                 </div>
                                 <div>
                                     <center>
-                                        <button type="button" id="register_button" class="button submit">Confirm</button>
+                                        <button type="submit" id="register_button" class="button submit">Edit</button>
                                     </center>
                                 </div>
                             </div>
