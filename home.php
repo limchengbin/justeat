@@ -79,10 +79,7 @@ and open the template in the editor.
                             }
                         }
                         ?>
-
-
-                        
-
+                        <a href="post.php"class="col-md-12 col-xs-12 fa fa-ellipsis-h" style="color: #000"></a>
                     </div>
                 </div> 
                 <?php
