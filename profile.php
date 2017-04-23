@@ -26,7 +26,10 @@ and open the template in the editor.
         <meta name="author" content="">
 
         <title>Profile</title>
-
+        
+        <link href="css/profilepic.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -83,8 +86,19 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 profile-pic">
-                    <img class="img-circle profile-pic" src="<?php echo $user['profilePic'] ?>">
+                    <img class="img-responsive visible-xs img-circle profile-pic" src="img/profilepic/<?php echo $user['profilePic'] ?>" alt="" style="width: 145px; height:105px;">
+                    <img class="img-responsive visible-sm img-circle profile-pic" src="img/profilepic/<?php echo $user['profilePic'] ?>" alt="" style="width: 145px; height: 105px;">
+                    <img class="img-responsive visible-md img-circle profile-pic" src="img/profilepic/<?php echo $user['profilePic'] ?>" alt="" style="width: 255px; height: 255px;">
+                    <img class="img-responsive visible-lg img-circle profile-pic" src="img/profilepic/<?php echo $user['profilePic'] ?>" alt="" style="width: 255px; height: 255px;">
+                    <br>
+                    <form action="profilePicUpdate.php" method="post" enctype="multipart/form-data">
+                        <input class="buttoncss" id="file" type="file" name="picture" />
+                        <label class="buttoncss2" for="file">Choose File</label>
+                        <input type='hidden' name="member_id" value="<?php echo $user['id'] ?>"/>
+                        <button class="buttoncss" id="submit" type="submit" name="submit">Upload</button>
+                    </form>
                 </div>
+                
                 <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8 username">
                     <h3 style="font-family: cursive; font-weight: bold;"><?php echo $user['name'] ?></h3>
                     <br>
@@ -100,7 +114,12 @@ and open the template in the editor.
                     ?>
                         
                     <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="images/profilepic/<?php echo $photo['profile_pic']; ?>" alt="">
+                        
+                        <img class="img-responsive visible-xs" src="images/profilepic/<?php echo $photo['profile_pic']; ?>" alt="" style="width: 100%; height: 165px;">
+                        <img class="img-responsive visible-sm" src="images/profilepic/<?php echo $photo['profile_pic']; ?>" alt="" style="width: 100%; height: 165px;">
+                        <img class="img-responsive visible-md" src="images/profilepic/<?php echo $photo['profile_pic']; ?>" alt="" style="width: 100%; height: 270px;">
+                        <img class="img-responsive visible-lg" src="images/profilepic/<?php echo $photo['profile_pic']; ?>" alt="" style="width: 100%; height: 270px;">
+                        
                     </div>
                     
                     <?php

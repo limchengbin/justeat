@@ -1,0 +1,45 @@
+.buttoncss {
+    height:30px;
+    width:100px;
+    font-size:14px;
+    border-radius:6px;
+    color:black;
+    background-color:white;
+    border-color:black;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 900;
+    transition:0.3s;
+}
+
+.buttoncss:hover {
+    color:#cc0000;
+    background-color:white;
+    border-color:#cc0000;
+    transition:0.3s;
+}
+
+.buttoncss2 {
+    height:30px;
+    width:100px;
+    font-size:14px;
+    border-radius:6px;
+    color:white;
+    padding: 5px;
+    background-color:#cc0000;
+    border-color:#cc0000;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 900;
+    transition:0.3s;
+}
+
+.buttoncss2:hover {
+    color:black;
+    background-color:white;
+    border-color:black;
+    transition:0.3s;
+}
+
+#file {
+    visibility: hidden;
+    display: none;
+}
