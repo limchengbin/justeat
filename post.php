@@ -38,6 +38,28 @@ and open the template in the editor.
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    
+        <style>
+            .delete{
+                background-color: transparent;
+                border: none;
+                color: red;
+                padding: 5px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+                cursor: pointer;
+            }
+
+            .delete:hover{
+                color: black;
+            }
+            
+        </style>
     </head>
     <body>
         <?php include 'navbar.php' ?>
@@ -59,6 +81,8 @@ and open the template in the editor.
                     <img src="img/bg.jpg" alt="" class="img-responsive"/>
                 </div>
                 <br>
+                <button class="delete pull-right"><i class="glyphicon glyphicon-trash"></i></button>
+                <br><br>
                 <div class="col-md-12 col-xs-12 caption-container">
                     <p class="caption"><?php echo $photos['caption'] ?></p>
                 </div>
