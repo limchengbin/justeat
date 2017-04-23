@@ -1,3 +1,6 @@
+<?php
+require_once('include/photo.php');
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -39,38 +42,50 @@ and open the template in the editor.
             <div class="col-md-6 col-md-offset-3 col-xs-12 add-post">
                 <h5 class="glyphicon glyphicon-plus" style="font-family: cursive; font-weight: bold; padding: 12px 36px;">&nbsp;Add New Post</h5>
             </div>
-            <div class="col-md-6 col-md-offset-3 col-xs-12 post-container">
-                <div class="row user">
-                    <div class="col-md-2 col-xs-3 user-pic">
-                        <img class="img-circle user-pic" src="img/1.jpg">
+            <?php
+            $a = 0;
+            foreach ($photos as $pic):
+                ?>
+                <div class="col-md-6 col-md-offset-3 col-xs-12 post-container">
+                    <div class="row user">
+                        <div class="col-md-2 col-xs-3 user-pic">
+                            <img class="img-circle user-pic" src=<?php echo "'img/" . $profilePic[$a] . "'" ?>>
+                        </div>
+                        <div class="col-md-6 col-xs-4 username">
+                            <h4 style="font-family: cursive; font-weight: bold;"><?php echo $name[$a] ?></h4>
+                        </div>
+                        <div class="col-md-4 col-xs-5 location">
+                            <h5 class="pull-right" style="font-weight: bold;"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;<?php echo $pic['checkIn'] ?></h5>
+                        </div>
                     </div>
-                    <div class="col-md-6 col-xs-4 username">
-                        <h4 style="font-family: cursive; font-weight: bold;">Jin</h4>
+                    <div class="img-container">
+                        <a href="post.php"><img src=<?php echo '"img/'. $pic['name'] .'"' ?> alt="" class="img-responsive"/></a>
                     </div>
-                    <div class="col-md-4 col-xs-5 location">
-                        <h5 class="pull-right" style="font-weight: bold;"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;ireland</h5>
+                    <br>
+                    <div class="col-md-12 col-xs-12 caption-container">
+                        <p class="caption"><?php echo $caption[$a] ?></p>
                     </div>
-                </div>
-                <div class="img-container">
-                    <a href="post.php"><img src="img/bg.jpg" alt="" class="img-responsive"/></a>
-                </div>
-                <br>
-                <div class="col-md-12 col-xs-12 caption-container">
-                    <p class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit</p>
-                </div>
-                <div class="col-md-12 col-xs-12 comments-container">
-                    <h5 class="title">Comments:</h5>
-                    <div class="col-md-12 col-xs-12 comments">
-                        <label>Bin: nice pic!</label>
+                    <div class="col-md-12 col-xs-12 comments-container">
+                        <h5 class="title">Comments:</h5>
+                        <?php
+                        for ($kk = 0; $kk < 2; $kk++) {
+                            if (!empty($username[$a][$kk]['name'])) {
+                                echo "<div class='col-md-12 col-xs-12 comments'><label>";
+                                echo $username[$a][$kk]['name'] . " : " . $realComments[$a][$kk];
+                                echo '</label></div>';
+                            }
+                        }
+                        ?>
+
+
+                        
+
                     </div>
-                    <div class="col-md-12 col-xs-12 comments">
-                        <label>Alvin: rich oooh!</label>
-                    </div>
-                    <div class="col-md-12 col-xs-12 comments">
-                        <label>Jin: up lin</label>
-                    </div>
-                </div>
-            </div>  
+                </div> 
+                <?php
+                $a++;
+            endforeach;
+            ?>
         </div>
     </body>
 </html>

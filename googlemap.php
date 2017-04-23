@@ -1,3 +1,6 @@
+<?php
+require_once('include/getLocation.php');
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -28,7 +31,7 @@ and open the template in the editor.
             #map {
                 height: 70%;
             }
-            
+
         </style>
     </head>
     <body>
@@ -45,8 +48,17 @@ and open the template in the editor.
             // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
             function initAutocomplete() {
+                var latt = <?php echo $location['lattitude'] ?>;
+                var long = <?php echo $location['longtitude'] ?>;
+                if (latt ===  0) {
+                    latt = -33.8688;
+                }
+                if (long === 0) {
+                    long = 151.2195;
+                }
+                
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: -33.8688, lng: 151.2195},
+                    center: {lat: latt, lng: long},
                     zoom: 13,
                     mapTypeId: 'roadmap'
                 });

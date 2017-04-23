@@ -48,7 +48,7 @@ and open the template in the editor.
         $print = $input;
         for ($x = 0; $x < sizeof($hashtag); $x++) {
             $word = "#" . $hashtag[$x];
-            $replace = "<a href=index.php?hashtag=" . $hashtag[$x] . ">#" . $hashtag[$x] . "<a>";
+            $replace = "<a href=index.php?hashtag=" . $hashtag[$x] . ">#" . $hashtag[$x] . "</a>";
             $print = str_replace($word, $replace, $print);
         }
 

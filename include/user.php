@@ -6,16 +6,11 @@
  * and open the template in the editor.
  */
 
+require_once("database.php");
 
-require_once('database.php');
-
-
-//$id = $_POST['id'];
-$id = 1 ; 
-
-$query1 = "SELECT checkIn,lattitude,longtitude from photos where id = :id";
+$query1 = "SELECT * from users";
 $statement1 = $db->prepare($query1);
-$statement1->bindValue(":id", $id);
 $statement1->execute();
-$location = $statement1->fetch();
+$photos = $statement1->fetchAll();
 $statement1->closeCursor();
+
