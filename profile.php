@@ -1,9 +1,5 @@
 <?php
- 
 include 'include/user.php';
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -66,11 +62,13 @@ and open the template in the editor.
             .post{
                 margin-top: 30px;
             }
-            
-            .img1{
+
+
+            .img-responsive{
                 max-width: 100%;
                 max-height: 100%;
             }
+
         </style>
     </head>
     <body>
@@ -91,16 +89,10 @@ and open the template in the editor.
             <div class="container profile-post">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                        <img class="img-responsive visible-xs" src="img/guanyinma.jpg" alt="" style="width: 100%; height: 165px;">
+                        <img class="img-responsive visible-sm" src="img/guanyinma.jpg" alt="" style="width: 100%; height: 165px;">
+                        <img class="img-responsive visible-md" src="img/guanyinma.jpg" alt="" style="width: 100%; height: 270px;">
+                        <img class="img-responsive visible-lg" src="img/guanyinma.jpg" alt="" style="width: 100%; height: 270px;">
                     </div>
                 </div>
             </div>
