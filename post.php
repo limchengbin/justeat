@@ -59,6 +59,9 @@ and open the template in the editor.
                 color: black;
             }
             
+            .big-container{
+                padding-bottom: 50px; 
+            }
         </style>
     </head>
     <body>
@@ -108,8 +111,9 @@ and open the template in the editor.
 
                 </div>
                 <div class='comment'>
-                    <a class="col-md-12 col-xs-12 fa fa-ellipsis-h" style="color: #000" onclick=<?php echo "'addComment(" . $userID . "," . $photos['id'] . ")'" ?>></a>   
+                    <a class="col-md-12 col-xs-12 fa fa-ellipsis-h" style="color: #000" onclick=<?php echo "'addComment(" . $userID . "," . $photos['id'] . ")'" ?>></a>
                 </div>
+                
             </div>  
         </div> 
 
