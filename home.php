@@ -40,7 +40,7 @@ and open the template in the editor.
         <?php include 'navbar.php' ?>
         <div class="container big-container">
             <div class="col-md-6 col-md-offset-3 col-xs-12 add-post">
-                <h5 class="glyphicon glyphicon-plus" style="font-family: cursive; font-weight: bold; padding: 12px 36px;">&nbsp;Add New Post</h5>
+                <a href="addNewPost.php" style="color: black;"><h5 class="glyphicon glyphicon-plus" style="font-family: cursive; font-weight: bold; padding: 12px 36px;">&nbsp;Add New Post</h5></a>
             </div>
             <?php
             $a = 0;

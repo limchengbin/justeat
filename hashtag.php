@@ -1,11 +1,3 @@
-<?php
- 
-include 'include/user.php';
-
-
-
-?>
-
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -20,7 +12,7 @@ and open the template in the editor.
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Profile</title>
+        <title>HashTag</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +58,7 @@ and open the template in the editor.
             .post{
                 margin-top: 30px;
             }
-            
+
             .img1{
                 max-width: 100%;
                 max-height: 100%;
@@ -77,14 +69,8 @@ and open the template in the editor.
         <?php include 'navbar.php' ?>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 profile-pic">
-                    <img class="img-circle profile-pic" src="img/1.jpg">
-                </div>
                 <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8 username">
-                    <h3 style="font-family: cursive; font-weight: bold;">Jin</h3>
-                    <br>
-                    <h4 class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit</h4>
-                    <h5 class="pull-right" style="font-weight: bold;">80 Posts</h5>
+                    <h3 style="font-family: cursive; font-weight: bold;">HashTag</h3>
                 </div>
             </div>
             <hr>
