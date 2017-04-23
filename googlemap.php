@@ -28,6 +28,10 @@ and open the template in the editor.
             #map {
                 height: 70%;
             }
+
+            #walking{
+                height: 15px;
+            }
             
         </style>
     </head>
@@ -35,6 +39,19 @@ and open the template in the editor.
         <?php include 'navbar.php' ?>
         <div class="container img-responsive" id="map"></div>
         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+        <br>
+        
+            <button class="visible-xs-inline-block visible-sm-inline-block"><i class="fa fa-car" onclick="travelMode = 'DRIVING';calculateRoute()"></i></button>
+            <button class="visible-xs-inline-block visible-sm-inline-block"><i class="fa fa-subway" onclick="travelMode = 'TRANSIT';calculateRoute()"></i></button>
+            <button class="visible-xs-inline-block visible-sm-inline-block"><i class="fa fa-bicycle" onclick="travelMode = 'BICYCLING';calculateRoute()"></i></button>
+            <button class="visible-xs-inline-block visible-sm-inline-block"><i class="" onclick="travelMode = 'WALKING';calculateRoute()"><img id="walking" src="img/walking.png" alt=""/></i></button>
+        
+            <br><br>
+        <details class="container visible-xs-inline-block visible-sm-inline-block"><summary>Directions</summary>
+            <div class="col-md-12 visible-xs-inline-block visible-sm-inline-block" id="directions"></div>
+        </details>
+
+
         <script>
             // This example adds a search box to a map, using the Google Place Autocomplete
             // feature. People can enter geographical searches. The search box will return a
