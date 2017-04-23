@@ -127,7 +127,7 @@ foreach ($photos as $pic) {
             $print = $process;
             for ($x = 0; $x < sizeof($hashtag); $x++) {
                 $word = "#" . $hashtag[$x];
-                $replace = "<a href=index.php?hashtag=" . $hashtag[$x] . ">#" . $hashtag[$x] . "</a>";
+                $replace = "<a href=hashtag.php?hashtag=" . $hashtag[$x] . ">#" . $hashtag[$x] . "</a>";
                 $print = str_replace($word, $replace, $print);
             }
             $realComments[$ID][$hehe] = $print;
