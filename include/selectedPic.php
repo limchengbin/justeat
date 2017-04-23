@@ -22,7 +22,7 @@ $query2 = "SELECT * from users where id = :id";
 $statement2 = $db->prepare($query2);
 $statement2->bindValue(":id", $photos['userID']);
 $statement2->execute();
-$user = $statement2->fetch();
+$poster = $statement2->fetch();
 $statement2->closeCursor();
 
 

@@ -28,7 +28,7 @@ $query2 = "SELECT * from users where id = :id";
 $statement2 = $db->prepare($query2);
 $statement2->bindValue(":id", $photos['userID']);
 $statement2->execute();
-$user = $statement2->fetch();
+$poster = $statement2->fetch();
 $statement2->closeCursor();
 
 
@@ -103,12 +103,32 @@ for ($b = 0; $b < sizeof($array); $b++) {
 
 $string = '<h5 class="title">Comments:</h5>';
 
+
+
+
+$query10 = "SELECT * from users where email = :email";
+$statement10 = $db->prepare($query10);
+$statement10->bindValue(":email", $_SESSION['email']);
+$statement10->execute();
+$people = $statement10->fetch();
+$statement10->closeCursor();
+
+$userID = $people['id'];
+
 if (!empty($comments)) {
     for ($x = 0; $x < sizeof($comments); $x++) {
-        $string.= '<div class="col-md-12 col-xs-12 comments">';
-        $string.= '<label>' . $array[$x]['name'] . ' : ' . $result[$x] . '</label><button onclick="deleteComment(' . $comments[$x]['id'] . ',' . $id . ')" class="pull-right"></button>';
-        $string.= '</div>';
+        $owner = false;
+        if ($comments[$x]['userID'] == $userID || $userID == $poster['id']) {
+            $owner = true;
+        }
+        $string .= '<div class="col-md-12 col-xs-12 comments">';
+        $string .= '<label>' . $array[$x]['name'] . ' : ' . $result[$x] . '</label>';
+        if ($owner) {
+            $string .= '<button onclick="deleteComment(' . $comments[$x]['id'] . ',' . $id . ')" class="pull-right"></button>';
+        }
+        $string .= '</div>';
     }
 }
 
 echo $string;
+

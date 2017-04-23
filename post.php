@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <?php
     require_once('include/selectedPic.php');
+    
+    $query10 = "SELECT * from users where email = :email";
+    $statement10 = $db->prepare($query10);
+    $statement10->bindValue(":email", $_SESSION['email']);
+    $statement10->execute();
+    $user = $statement10->fetch();
+    $statement10->closeCursor();
+    
+    $userID = $user['id'];
+    
 ?>
 
 <!--
@@ -40,7 +50,7 @@ and open the template in the editor.
                         <img class="img-circle user-pic" src="img/1.jpg">
                     </div>
                     <div class="col-md-6 col-xs-4 username">
-                        <h4 style="font-family: cursive; font-weight: bold;"><?php echo $user['name'] ?></h4>
+                        <h4 style="font-family: cursive; font-weight: bold;"><?php echo $poster['name'] ?></h4>
                     </div>
                     <div class="col-md-4 col-xs-5 location">
                         <h5 class="pull-right" style="font-weight: bold;"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;<a href=<?php echo "'googlemap.php?id=" . $photos['id'] . "'" ?>><?php echo $photos['checkIn'] ?></a></h5>
@@ -56,10 +66,12 @@ and open the template in the editor.
                 <div class="col-md-12 col-xs-12 comments-container">
                     <h5 class="title">Comments:</h5>
                     
-                    <?php 
+                    <?php
                     if(!empty($comments)){for($x=0;$x<sizeof($comments);$x++){
+                        $owner=false;if($comments[$x]['userID'] ==  $userID || $userID == $poster['id']){$owner = true;}
                     echo '<div class="col-md-12 col-xs-12 comments">';
-                        echo '<label>'. $array[$x]['name'] .' : '. $result[$x] . '</label><button onclick="deleteComment('. $comments[$x]['id'] .','. $_GET['id'] .')" class="pull-right"></button>';
+                        echo '<label>'. $array[$x]['name'] .' : '. $result[$x] . '</label>';
+                        if($owner){echo '<button onclick="deleteComment('. $comments[$x]['id'] .','. $_GET['id'] .')" class="pull-right"></button>';}
                     echo '</div>' ;
                     }}?>
                     
