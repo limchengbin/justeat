@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php 
+<?php
     require_once('include/selectedPic.php');
 ?>
 
@@ -15,7 +15,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
+        
         <title>Post</title>
 
         <!-- Bootstrap Core CSS -->
@@ -31,19 +31,19 @@ and open the template in the editor.
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <?php include 'navbar.php'?>
-        
-       <div class="container big-container">
+        <?php include 'navbar.php' ?>
+
+        <div class="container big-container">
             <div class="col-md-6 col-md-offset-3 col-xs-12 post-container">
                 <div class="row user">
                     <div class="col-md-2 col-xs-3 user-pic">
                         <img class="img-circle user-pic" src="img/1.jpg">
                     </div>
                     <div class="col-md-6 col-xs-4 username">
-                        <h4 style="font-family: cursive; font-weight: bold;">Jin</h4>
+                        <h4 style="font-family: cursive; font-weight: bold;"><?php echo $user['name'] ?></h4>
                     </div>
                     <div class="col-md-4 col-xs-5 location">
-                        <h5 class="pull-right" style="font-weight: bold;"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;ireland</h5>
+                        <h5 class="pull-right" style="font-weight: bold;"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;<a href=<?php echo "'googlemap.php?id=" . $photos['id'] . "'" ?>><?php echo $photos['checkIn'] ?></a></h5>
                     </div>
                 </div>
                 <div class="img-container">
@@ -51,27 +51,49 @@ and open the template in the editor.
                 </div>
                 <br>
                 <div class="col-md-12 col-xs-12 caption-container">
-                    <p class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit adipisicing elit</p>
+                    <p class="caption"><?php echo $photos['caption'] ?></p>
                 </div>
                 <div class="col-md-12 col-xs-12 comments-container">
                     <h5 class="title">Comments:</h5>
-                    <div class="col-md-12 col-xs-12 comments">
-                        <label>Bin: up</label><button class="pull-right"></button>
-                    </div>
-                    <div class="col-md-12 col-xs-12 comments">
-                        <label>Alvin: rich oooh!</label><button class="pull-right"></button>
-                    </div>
-                    <div class="col-md-12 col-xs-12 comments">
-                        <label>Jin: up lin</label><button class="pull-right"></button>
-                    </div>
+                    
+                    <?php 
+                    if(!empty($comments)){for($x=0;$x<sizeof($comments);$x++){
+                    echo '<div class="col-md-12 col-xs-12 comments">';
+                        echo '<label>'. $array[$x]['name'] .' : '. $result[$x] . '</label><button onclick="deleteComment('. $comments[$x]['id'] .','. $_GET['id'] .')" class="pull-right"></button>';
+                    echo '</div>' ;
+                    }}?>
+                    
                 </div>
             </div>  
         </div> 
-                
-        <!-- jQuery -->
-        <script src="js/jquery.js"></script>
 
+        <!-- jQuery -->
+       
+        
         <!-- Bootstrap Core JavaScript -->
+         <script src="js/jquery.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        
+        
+        <script type="text/javascript">
+            function deleteComment(id,pic) {
+                 $(document).ready(function () {
+                    $.ajax({
+                       url: "include/deleteComment.php",
+                        type: "post",
+                        data: {
+                            id: id,
+                            pic: pic
+                        },
+                        success: function (data) {
+                            $(".comments-container").html(data);
+                        }
+                    });
+                });
+            }
+
+        </script>
+        
     </body>
 </html>

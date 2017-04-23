@@ -7,16 +7,22 @@
  */
 
 require_once('database.php');
+$deleteID = $_POST['id'];
+$id = $_POST['pic'];
 
-$id = $_GET['id'];
+$query5 = "DELETE FROM comments WHERE id = :id";
+$statement5 = $db->prepare($query5);
+$statement5->bindValue(":id", $deleteID);
+$statement5->execute();
+$statement5->closeCursor();
 
 $query1 = "SELECT * from photos where id = :id ";
 $statement1 = $db->prepare($query1);
-$statement1 ->bindValue(":id",$id);
+$statement1->bindValue(":id", $id);
 $statement1->execute();
 $photos = $statement1->fetch();
-$statement1->closeCursor(); 
- 
+$statement1->closeCursor();
+
 
 $query2 = "SELECT * from users where id = :id";
 $statement2 = $db->prepare($query2);
@@ -88,10 +94,21 @@ for ($b = 0; $b < sizeof($array); $b++) {
         $print = str_replace($word, $replace, $print);
     }
 
- 
+
 
 
 
     $result[$b] = $print;
 }
 
+$string = '<h5 class="title">Comments:</h5>';
+
+if (!empty($comments)) {
+    for ($x = 0; $x < sizeof($comments); $x++) {
+        $string.= '<div class="col-md-12 col-xs-12 comments">';
+        $string.= '<label>' . $array[$x]['name'] . ' : ' . $result[$x] . '</label><button onclick="deleteComment(' . $comments[$x]['id'] . ',' . $id . ')" class="pull-right"></button>';
+        $string.= '</div>';
+    }
+}
+
+echo $string;
