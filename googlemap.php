@@ -42,12 +42,16 @@ and open the template in the editor.
         <div class="container img-responsive" id="map"></div>
         <input id="pac-input" class="controls" type="hidden" placeholder="Search Box">
         <br>
-
-        <button class="visible-xs-inline-block visible-sm-inline-block"><i class="fa fa-car" onclick="travelMode = 'DRIVING';calculateRoute()"></i></button>
-        <button class="visible-xs-inline-block visible-sm-inline-block"><i class="fa fa-subway" onclick="travelMode = 'TRANSIT';calculateRoute()"></i></button>
-        <button class="visible-xs-inline-block visible-sm-inline-block"><i class="fa fa-bicycle" onclick="travelMode = 'BICYCLING';calculateRoute()"></i></button>
-        <button class="visible-xs-inline-block visible-sm-inline-block"><i class="" onclick="travelMode = 'WALKING';calculateRoute()"><img id="walking" src="img/walking.png" alt=""/></i></button>
-
+        <div class="col-md-8 col-md-offset-2 visible-xs" >
+            <input type="text" class="form-control" name="start" id="start" placeholder=" Start" value="">
+        </div>
+        <br>
+        <div class="col-md-8 col-md-offset-2">
+            <button class="visible-xs-inline-block visible-sm-inline-block"><i class="fa fa-car" onclick="travelMode = 'DRIVING';calculateRoute()"></i></button>
+            <button class="visible-xs-inline-block visible-sm-inline-block"><i class="fa fa-subway" onclick="travelMode = 'TRANSIT';calculateRoute()"></i></button>
+            <button class="visible-xs-inline-block visible-sm-inline-block"><i class="fa fa-bicycle" onclick="travelMode = 'BICYCLING';calculateRoute()"></i></button>
+            <button class="visible-xs-inline-block visible-sm-inline-block"><i class="" onclick="travelMode = 'WALKING';calculateRoute()"><img id="walking" src="img/walking.png" alt=""/></i></button>
+        </div>
         <br><br>
         <details class="container visible-xs-inline-block visible-sm-inline-block"><summary>Directions</summary>
             <div class="col-md-12 visible-xs-inline-block visible-sm-inline-block" id="directions"></div>
@@ -126,7 +130,6 @@ and open the template in the editor.
                             return;
                         }
 
-
                         if (place.geometry.viewport) {
                             // Only geocodes have viewport.
                             bounds.union(place.geometry.viewport);
@@ -135,24 +138,6 @@ and open the template in the editor.
                         }
                     });
                     map.fitBounds(bounds);
-                });
-            }
-
-            function calculateRoute()
-            {
-                var start = document.getElementById('start').value;
-                var end = document.getElementById('end').value;
-
-                var request = {origin: start,
-                    destination: end,
-                    travelMode: google.maps.TravelMode[travelMode]};
-
-                directionsService.route(request, function (response, status)
-                {
-                    if (status == google.maps.DirectionsStatus.OK)
-                    {
-                        directionsDisplay.setDirections(response);
-                    }
                 });
             }
 
