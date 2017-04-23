@@ -62,7 +62,7 @@ and open the template in the editor.
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right" id="title-right">
                             <li class="option">
-                                <a href="profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;<?php if (isset($user['name'])) {echo $user['name'];} ?></a>
+                                <a href="profile.php"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;<?php if(isset($_SESSION['name'])){echo $_SESSION['name'];} ?></a>
                             </li>
                             <li class="option">
                                 <a href="edit.php"><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;Edit Profile</a>
