@@ -58,11 +58,11 @@ and open the template in the editor.
                             <h4 style="font-family: cursive; font-weight: bold;"><?php echo $name[$a] ?></h4>
                         </div>
                         <div class="col-md-4 col-xs-5 location">
-                            <h5 class="pull-right" style="font-weight: bold;"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;<?php echo $pic['checkIn'] ?></h5>
+                            <h5 class="pull-right" style="font-weight: bold;"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;<a href=<?php echo "'googlemap.php?id=" . $pic['id'] . "'" ?>><?php echo $pic['checkIn'] ?></a></h5>
                         </div>
                     </div>
-                    <div class="img-container">
-                        <a href="post.php"><img src=<?php echo '"img/'. $pic['name'] .'"' ?> alt="" class="img-responsive"/></a>
+                    <div class="img-container"> 
+                        <a href= <?php echo "'post.php?id=" . $pic['id'] . "'" ?>><img src=<?php echo '"img/'. $pic['name'] .'"' ?> alt="" class="img-responsive"/></a>
                     </div>
                     <br>
                     <div class="col-md-12 col-xs-12 caption-container">

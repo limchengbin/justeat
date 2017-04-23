@@ -76,7 +76,7 @@ and open the template in the editor.
                 
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: latt, lng: long},
-                    zoom: 13,
+                    zoom: 18,
                     mapTypeId: 'roadmap'
                 });
 

@@ -1,3 +1,6 @@
+<?php 
+    require_once('include/hashtagPost.php');
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -70,24 +73,22 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8 username">
-                    <h3 style="font-family: cursive; font-weight: bold;">HashTag</h3>
+                    <h3 style="font-family: cursive; font-weight: bold;"><?php echo "#".$_GET['hashtag'] ?></h3>
                 </div>
             </div>
             <hr>
             <div class="container profile-post">
                 <div class="row">
+                    
+                    <?php if(!empty($result)){foreach($result as $hashtag):?>
                     <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                        <img class="img-responsive" src=<?php echo "'". $hashtag['name'] ."'"  ?> alt="">
                     </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    </div>
+                    <?php endforeach ;}else{
+                        echo "no picture with this hashtag";
+                    }
+?>
+                    
                 </div>
             </div>
         </div>

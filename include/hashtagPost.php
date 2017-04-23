@@ -8,7 +8,7 @@
 require_once('database.php');
 
 
-$tag = $_GET['tag'];
+$tag = $_GET['hashtag'];
 
 
 

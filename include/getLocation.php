@@ -10,8 +10,7 @@
 require_once('database.php');
 
 
-//$id = $_POST['id'];
-$id = 1 ; 
+$id = $_GET['id'];
 
 $query1 = "SELECT checkIn,lattitude,longtitude from photos where id = :id";
 $statement1 = $db->prepare($query1);
