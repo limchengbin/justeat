@@ -1,8 +1,17 @@
 <?php
 require_once('include/photo.php');
-if(!isset($_SESSION['name'])){
-       header('location: index.php');
-   }
+if (!isset($_SESSION['name'])) {
+    header('location: index.php');
+}
+
+$query10 = "SELECT * from users where email = :email";
+$statement10 = $db->prepare($query10);
+$statement10->bindValue(":email", $_SESSION['email']);
+$statement10->execute();
+$user = $statement10->fetch();
+$statement10->closeCursor();
+
+$userID = $user['id'];
 ?>
 <!DOCTYPE html>
 <!--
@@ -49,7 +58,7 @@ and open the template in the editor.
             $a = 0;
             foreach ($photos as $pic):
                 ?>
-                <div class="col-md-6 col-md-offset-3 col-xs-12 post-container">
+                <div class="col-md-6 col-md-offset-3 col-xs-12 post-container" id=<?php $pic['id'] ?>>
                     <div class="row user">
                         <div class="col-md-2 col-xs-3 user-pic">
                             <img class="img-circle user-pic" src=<?php echo "'img/" . $profilePic[$a] . "'" ?>>
@@ -62,7 +71,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="img-container"> 
-                        <a href= <?php echo "'post.php?id=" . $pic['id'] . "'" ?>><img src=<?php echo '"img/'. $pic['name'] .'"' ?> alt="" class="img-responsive"/></a>
+                        <a href= <?php echo "'post.php?id=" . $pic['id'] . "'" ?>><img src=<?php echo '"img/' . $pic['name'] . '"' ?> alt="" class="img-responsive"/></a>
                     </div>
                     <br>
                     <div class="col-md-12 col-xs-12 caption-container">
@@ -79,13 +88,14 @@ and open the template in the editor.
                             }
                         }
                         ?>
-                        <a href=<?php echo "'post.php?id=". $pic['id'] ."'" ?> class="col-md-12 col-xs-12 fa fa-ellipsis-h" style="color: #000"></a>
                     </div>
                 </div> 
                 <?php
                 $a++;
             endforeach;
             ?>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+            <
         </div>
     </body>
 </html>
