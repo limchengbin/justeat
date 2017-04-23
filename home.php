@@ -60,8 +60,8 @@ and open the template in the editor.
                 ?>
                 <div class="col-md-6 col-md-offset-3 col-xs-12 post-container" id=<?php $pic['id'] ?>>
                     <div class="row user">
-                        <div class="col-md-2 col-xs-3 user-pic">
-                            <img class="img-circle user-pic" src=<?php echo "'img/" . $profilePic[$a] . "'" ?>>
+                        <div class="col-md-2 col-xs-3 user-pic" style="background-size:cover;">
+                            <img class="img-circle user-pic" style="width: 50px; height: 60px;" src=<?php echo "'img/" . $profilePic[$a] . "'" ?>>
                         </div>
                         <div class="col-md-6 col-xs-4 username">
                             <h4 style="font-family: cursive; font-weight: bold;"><?php echo $name[$a] ?></h4>
