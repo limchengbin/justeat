@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <?php
-    require_once('include/selectedPic.php');
-    
-    $query10 = "SELECT * from users where email = :email";
-    $statement10 = $db->prepare($query10);
-    $statement10->bindValue(":email", $_SESSION['email']);
-    $statement10->execute();
-    $user = $statement10->fetch();
-    $statement10->closeCursor();
-    
-    $userID = $user['id'];
-    
+require_once('include/selectedPic.php');
+
+$query10 = "SELECT * from users where email = :email";
+$statement10 = $db->prepare($query10);
+$statement10->bindValue(":email", $_SESSION['email']);
+$statement10->execute();
+$user = $statement10->fetch();
+$statement10->closeCursor();
+
+$userID = $user['id'];
 ?>
 
 <!--
@@ -25,7 +24,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        
+
         <title>Post</title>
 
         <!-- Bootstrap Core CSS -->
@@ -65,34 +64,45 @@ and open the template in the editor.
                 </div>
                 <div class="col-md-12 col-xs-12 comments-container">
                     <h5 class="title">Comments:</h5>
-                    
+
                     <?php
-                    if(!empty($comments)){for($x=0;$x<sizeof($comments);$x++){
-                        $owner=false;if($comments[$x]['userID'] ==  $userID || $userID == $poster['id']){$owner = true;}
-                    echo '<div class="col-md-12 col-xs-12 comments">';
-                        echo '<label>'. $array[$x]['name'] .' : '. $result[$x] . '</label>';
-                        if($owner){echo '<button onclick="deleteComment('. $comments[$x]['id'] .','. $_GET['id'] .')" class="pull-right"></button>';}
-                    echo '</div>' ;
-                    }}?>
-                    
+                    if (!empty($comments)) {
+                        for ($x = 0; $x < sizeof($comments); $x++) {
+                            $owner = false;
+                            if ($comments[$x]['userID'] == $userID || $userID == $poster['id']) {
+                                $owner = true;
+                            }
+                            echo '<div class="col-md-12 col-xs-12 comments">';
+                            echo '<label>' . $array[$x]['name'] . ' : ' . $result[$x] . '</label>';
+                            if ($owner) {
+                                echo '<button onclick="deleteComment(' . $comments[$x]['id'] . ',' . $_GET['id'] . ')" class="pull-right"></button>';
+                            }
+                            echo '</div>';
+                        }
+                    }
+                    ?>
+
+                </div>
+                <div class='comment'>
+                    <a class="col-md-12 col-xs-12 fa fa-ellipsis-h" style="color: #000" onclick=<?php echo "'addComment(" . $userID . "," . $photos['id'] . ")'" ?>></a>   
                 </div>
             </div>  
         </div> 
 
         <!-- jQuery -->
-       
-        
+
+
         <!-- Bootstrap Core JavaScript -->
-         <script src="js/jquery.js"></script>
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        
-        
+
+
         <script type="text/javascript">
-            function deleteComment(id,pic) {
-                 $(document).ready(function () {
+            function deleteComment(id, pic) {
+                $(document).ready(function () {
                     $.ajax({
-                       url: "include/deleteComment.php",
+                        url: "include/deleteComment.php",
                         type: "post",
                         data: {
                             id: id,
@@ -104,8 +114,25 @@ and open the template in the editor.
                     });
                 });
             }
+            
+            
+            function addComment(id, pic) {
+                    $(document).ready(function () {
+                        $.ajax({
+                            url: "include/chgHTML.php",
+                            type: "post",
+                            data: {
+                                id: id,
+                                pic: pic
+                            },
+                            success: function (data) {
+                                $('.comment').replaceWith($('.comment').html(data));
+                            }
+                        });
+                    });
+                }
 
         </script>
-        
+
     </body>
 </html>

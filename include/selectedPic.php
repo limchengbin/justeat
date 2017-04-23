@@ -88,9 +88,6 @@ for ($b = 0; $b < sizeof($array); $b++) {
         $print = str_replace($word, $replace, $print);
     }
 
- 
-
-
 
     $result[$b] = $print;
 }
