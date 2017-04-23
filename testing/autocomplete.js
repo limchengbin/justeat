@@ -14,12 +14,12 @@ function onPlaceChanged() {
     for (var i in place.address_components) {
         var component = place.address_components[i];
 
-//    for (var j in component.types) {  // Some types are ["country", "political"]
-//      var type_element = document.getElementById(component.types[j]);
-//      if (type_element) {
-//        type_element.value = component.long_name;
-//      }
-//    }
+    for (var j in component.types) {  // Some types are ["country", "political"]
+      var type_element = document.getElementById(component.types[j]);
+      if (type_element) {
+        type_element.value = component.long_name;
+      }
+    }
     }
 }
 
