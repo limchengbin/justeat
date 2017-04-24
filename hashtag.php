@@ -1,5 +1,5 @@
-<?php 
-    require_once('include/hashtagPost.php');
+<?php
+require_once('include/hashtagPost.php');
 ?>
 <!DOCTYPE html>
 <!--
@@ -73,22 +73,33 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-xs-8 col-lg-8 col-sm-8 username">
-                    <h3 style="font-family: cursive; font-weight: bold;"><?php echo "#".$_GET['hashtag'] ?></h3>
+                    <h3 style="font-family: cursive; font-weight: bold;"><?php echo "#" . $_GET['hashtag'] ?></h3>
                 </div>
             </div>
             <hr>
             <div class="container profile-post">
                 <div class="row">
-                    
-                    <?php if(!empty($result)){foreach($result as $hashtag):?>
-                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <a href=<?php echo "'post.php?id=". $hashtag['id'] ."'" ?> ><img class="img-responsive" src=<?php echo "'img/". $hashtag['name'] ."'"  ?> alt=""></a>
-                    </div>
-                    <?php endforeach ;}else{
+
+                    <?php if (!empty($result)) {
+                        foreach ($result as $hashtag): ?>
+                            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
+
+                                
+
+                                <a href=<?php echo "'post.php?id=" . $hashtag['id'] . "'" ?> ><img class="img-responsive visible-xs" src="<?php echo "'img/" . $hashtag['name'] . "'" ?>" alt="" style="width: 100%; height: 165px;"></a>
+                                <a href=<?php echo "'post.php?id=" . $hashtag['id'] . "'" ?> ><img class="img-responsive visible-sm" src="<?php echo "'img/" . $hashtag['name'] . "'" ?>" alt="" style="width: 100%; height: 165px;"></a>
+                                <a href=<?php echo "'post.php?id=" . $hashtag['id'] . "'" ?> ><img class="img-responsive visible-md" src="<?php echo "'img/" . $hashtag['name'] . "'" ?>" alt="" style="width: 100%; height: 270px;"></a>
+                                <a href=<?php echo "'post.php?id=" . $hashtag['id'] . "'" ?> ><img class="img-responsive visible-lg" src="<?php echo "'img/" . $hashtag['name'] . "'" ?>" alt="" style="width: 100%; height: 270px;"></a>
+
+
+                            </div>
+                        <?php
+                        endforeach;
+                    }else {
                         echo "no picture with this hashtag";
                     }
-?>
-                    
+                    ?>
+
                 </div>
             </div>
         </div>

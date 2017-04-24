@@ -8,7 +8,7 @@
 
 
 require_once('database.php');
-
+require_once('user.php');
 //$url = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 $caption = filter_input(INPUT_POST, "about-you", FILTER_SANITIZE_STRING);
 $checkIn = $_POST['user_input_autocomplete_address'];
@@ -53,20 +53,39 @@ for ($x = 0; $x < sizeof($hashtag); $x++) {
     $insertHashtag = $insertHashtag . $hashtag[$x] . ",";
 }
 
-$insert = substr($insertHashtag,0,-1);
+$insert = substr($insertHashtag, 0, -1);
 echo $insert;
 
-$query = "Insert into photos (name,caption,checkIn,lattitude,longtitude,hashtag,userID) values (:name,:caption,:checkIn,:lattitude,:longtitude,:hashtag,:userID);" ;
+//$target_dir = "img/postpic/";
+//$target_file =  basename($_FILES["fileToUpload"]["name"]);
+//$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+//$picName = $target_dir . $target_file;
+//
+//move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],$picName);
+
+$target_dir = "../img/postpic/";
+$filename = basename($_FILES['fileToUpload']['name']);
+$target_file = $target_dir . $filename;
+
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+
+$call_pic = "/postpic/".$filename;
+$query = "Insert into photos (name,caption,checkIn,lattitude,longtitude,hashtag,userID) values (:name,:caption,:checkIn,:lattitude,:longtitude,:hashtag,:userID);";
 $statement = $db->prepare($query);
-$statement->bindValue(":name" , "image");
-$statement->bindValue(":caption",$caption);
-$statement->bindValue(":checkIn",$checkIn);
-$statement->bindValue(":lattitude",$lat);
-$statement->bindValue(":longtitude",$lng);
-$statement->bindValue(":hashtag" , $insert);
-$statement->bindValue(":userID" , 69);
+$statement->bindValue(":name", $call_pic);
+$statement->bindValue(":caption", $caption);
+$statement->bindValue(":checkIn", $checkIn);
+$statement->bindValue(":lattitude", $lat);
+$statement->bindValue(":longtitude", $lng);
+$statement->bindValue(":hashtag", $insert);
+$statement->bindValue(":userID", $user['id']);
 $statement->execute();
 $statement->closeCursor();
+
+
+
+
+
 
 header('location: ../home.php');
 

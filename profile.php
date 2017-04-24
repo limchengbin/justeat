@@ -116,7 +116,6 @@ and open the template in the editor.
                     ?>
                         
                     <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-<<<<<<< HEAD
                         
                         <img class="img-responsive visible-xs" src="images/profilepic/<?php echo $photo['profile_pic']; ?>" alt="" style="width: 100%; height: 165px;">
                         <img class="img-responsive visible-sm" src="images/profilepic/<?php echo $photo['profile_pic']; ?>" alt="" style="width: 100%; height: 165px;">
@@ -128,13 +127,8 @@ and open the template in the editor.
                     <?php
                     endforeach;
                     ?>
-=======
-                        <img class="img-responsive visible-xs" src="img/guanyinma.jpg" alt="" style="width: 100%; height: 165px;">
-                        <img class="img-responsive visible-sm" src="img/guanyinma.jpg" alt="" style="width: 100%; height: 165px;">
-                        <img class="img-responsive visible-md" src="img/guanyinma.jpg" alt="" style="width: 100%; height: 270px;">
-                        <img class="img-responsive visible-lg" src="img/guanyinma.jpg" alt="" style="width: 100%; height: 270px;">
                     </div>
->>>>>>> origin/master
+
                 </div>
             </div>
         </div>

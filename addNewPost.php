@@ -13,7 +13,7 @@ and open the template in the editor.
         <meta name="author" content="">
 
         <title>New Post</title>
-
+        <link href="css/profilepic.css" rel="stylesheet" type="text/css"/>
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -55,11 +55,16 @@ and open the template in the editor.
             </div>
             <div class="contact-section">
                 <div class="container">
-                    <form id="register-form" method="post" action="include/insertComment.php">
+                    <form id="register-form" method="post" enctype="multipart/form-data" action="include/insertComment.php">
                         <div class="container">
                             <div class="col-md-6 col-md-offset-3 col-xs-12">
                                 <div class="form-group">
-                                    
+                                    <label for="exampleInputAddress" class="form-title">Photo</label><br>
+                                    <label for='fileToUpload' >Upload</label>
+                                    <input type="file" name="fileToUpload" id="fileToUpload">
+                <!--                                        <input class="buttoncss" id="fileToUpload" type="file" name="fileToUpload" />
+                                                        <label class="buttoncss2" for="fileToUpload">Choose File</label>-->
+
                                 </div>
                                 <div class="form-group">
                                     <textarea rows="4" type="text" class="form-control" id="about-you" name="about-you" placeholder="Write a caption..." value=""></textarea>
