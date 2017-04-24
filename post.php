@@ -71,7 +71,7 @@ and open the template in the editor.
             <div class="col-md-6 col-md-offset-3 col-xs-12 post-container">
                 <div class="row user">
                     <div class="col-md-2 col-xs-3 user-pic">
-                        <img class="img-circle user-pic" src="img/1.jpg">
+                        <img class="img-circle user-pic" src=<?php echo"'img/". $poster['profilePic'] ."'" ?>>
                     </div>
                     <div class="col-md-6 col-xs-4 username">
                         <h4 style="font-family: cursive; font-weight: bold;"><?php echo $poster['name'] ?></h4>
@@ -81,11 +81,11 @@ and open the template in the editor.
                     </div>
                 </div>
                 <div class="img-container">
-                    <img src="img/bg.jpg" alt="" class="img-responsive"/>
+                    <img src=<?php echo "'img/" . $photos['name'] ."'" ?> alt="" class="img-responsive"/>
                 </div>
-                <br>
+                <br><form action=<?php echo "'include/deletePic.php?id=". $photos['id'] ."'" ?> method="post">
                 <button class="delete pull-right"><i class="glyphicon glyphicon-trash"></i></button>
-                <br><br>
+                </form>><br><br>
                 <div class="col-md-12 col-xs-12 caption-container">
                     <p class="caption"><?php echo $photos['caption'] ?></p>
                 </div>
@@ -159,7 +159,7 @@ and open the template in the editor.
                         });
                     });
                 }
-
+                
         </script>
 
     </body>
