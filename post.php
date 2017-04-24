@@ -85,9 +85,9 @@ and open the template in the editor.
                 </div>
                 <br><form action=<?php echo "'include/deletePic.php?id=". $photos['id'] ."'" ?> method="post">
                 <button class="delete pull-right"><i class="glyphicon glyphicon-trash"></i></button>
-                </form>><br><br>
+                </form><br><br>
                 <div class="col-md-12 col-xs-12 caption-container">
-                    <p class="caption"><?php echo $photos['caption'] ?></p>
+                    <p class="caption"><?php echo $caption?></p>
                 </div>
                 <div class="col-md-12 col-xs-12 comments-container">
                     <h5 class="title">Comments:</h5>
