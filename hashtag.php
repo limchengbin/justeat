@@ -82,7 +82,11 @@ and open the template in the editor.
                     
                     <?php if(!empty($result)){foreach($result as $hashtag):?>
                     <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 post">
-                        <img class="img-responsive" src=<?php echo "'". $hashtag['name'] ."'"  ?> alt="">
+                        <img class="img-responsive visible-xs" src="<?php echo "'". $hashtag['name'] ."'"  ?>" alt="" style="width: 100%; height: 165px;">
+                        <img class="img-responsive visible-sm" src="<?php echo "'". $hashtag['name'] ."'"  ?>" alt="" style="width: 100%; height: 165px;">
+                        <img class="img-responsive visible-md" src="<?php echo "'". $hashtag['name'] ."'"  ?>" alt="" style="width: 100%; height: 270px;">
+                        <img class="img-responsive visible-lg" src="<?php echo "'". $hashtag['name'] ."'"  ?>" alt="" style="width: 100%; height: 270px;">
+                        
                     </div>
                     <?php endforeach ;}else{
                         echo "no picture with this hashtag";

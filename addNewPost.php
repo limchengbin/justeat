@@ -13,7 +13,7 @@ and open the template in the editor.
         <meta name="author" content="">
 
         <title>New Post</title>
-
+        <link href="css/profilepic.css" rel="stylesheet" type="text/css"/>
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -48,7 +48,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php include 'navbar.php' ?>
-
+        
         <section id="portfolio" class="bg-light-gray">
             <div class="section-content">
                 <h1 class="section-header"></h1>
@@ -59,7 +59,12 @@ and open the template in the editor.
                         <div class="container">
                             <div class="col-md-6 col-md-offset-3 col-xs-12">
                                 <div class="form-group">
-                                    
+                                    <label for="exampleInputAddress" class="form-title">Photo</label><br>
+                                    <label for='fileToUpload' >Choose File</label>
+                                    <input type="file" name="fileToUpload" id="fileToUpload">
+<!--                                        <input class="buttoncss" id="fileToUpload" type="file" name="fileToUpload" />
+                                        <label class="buttoncss2" for="fileToUpload">Choose File</label>-->
+
                                 </div>
                                 <div class="form-group">
                                     <textarea rows="4" type="text" class="form-control" id="about-you" name="about-you" placeholder="Write a caption..." value=""></textarea>
